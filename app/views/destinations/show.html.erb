@@ -1,0 +1,21 @@
+<h1> Name: <%= @destination.name %></h1>
+<h1> Country: <%= @destination.country %></h1>
+
+
+
+<h3><%= pluralize(@destination.posts.count, 'Post') %></h3>
+<ul>
+  <% @destination.posts.each do |post| %>
+    <li><%= link_to post.title, post_path(post) %></li>
+  <% end %>
+</ul>
+
+
+
+
+
+
+
+<%= button_to "All Destinations", destinations_path, method: :get %>
+<%= button_to "Edit Destination", edit_destination_path(@destination), method: :get %>
+<%= button_to "Remove Destination", destination_path(@destination), method: 'delete', data: { confirm: 'Are you sure' } %>

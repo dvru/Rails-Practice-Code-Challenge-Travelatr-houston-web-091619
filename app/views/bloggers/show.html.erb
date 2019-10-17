@@ -1,0 +1,10 @@
+
+<h1> Name: <%= @blogger.name %></h1>
+<h1> Bio: <%= @blogger.bio %></h1>
+<h1> Age: <%= @blogger.age %></h1>
+
+
+<%= button_to "All Bloggers", bloggers_path, method: :get %>
+<%= button_to "Edit Blooger", edit_blogger_path(@blogger), method: :get %>
+
+<%= button_to "Remove Blogger", blogger_path(@blogger), method: 'delete', data: { confirm: 'Are you sure' } %>

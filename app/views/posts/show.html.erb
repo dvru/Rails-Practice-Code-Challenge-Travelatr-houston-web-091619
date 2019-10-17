@@ -1,0 +1,18 @@
+<h1> Title: <%= @post.title %></h1>
+<h1> Content: <%= @post.content %></h1>
+<h1> likes: <%= @post.likes %></h1>
+<h1> blogger_id: <%= @post.blogger_id %></h1>
+<h1> destination_id: <%= @post.destination_id %></h1>
+
+
+
+
+
+
+
+
+<%= button_to "Like", action: 'like' %>
+<%= button_to "Edit Post", edit_post_path(@post), method: :get %>
+<%= button_to "Remove Post", post_path(@post), method: 'delete', data: { confirm: 'Are you sure' } %>
+
+
