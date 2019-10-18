@@ -1,11 +1,8 @@
 <h1> Title: <%= @post.title %></h1>
 <h1> Content: <%= @post.content %></h1>
 <h1> likes: <%= @post.likes %></h1>
-<h1> blogger_id: <%= @post.blogger_id %></h1>
-<h1> destination_id: <%= @post.destination_id %></h1>
-
-
-
+<%= link_to @post.blogger.name, blogger_path(@post.blogger) %> 
+<%= link_to @post.destination.name, destination_path(@post.destination) %> 
 
 
 

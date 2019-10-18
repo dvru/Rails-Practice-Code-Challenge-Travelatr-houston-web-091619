@@ -10,22 +10,28 @@ end
 
 def new
     @blogger = Blogger.new
+    @posts = Post.all 
+    @destinations = Destination.all
 end 
 
 def create 
-    @blogger = Blogger.create(blogger_params)
+    @blogger = Blogger.new(blogger_params)
 
     if @blogger.valid?
         @blogger.save 
         redirect_to blogger_path(@blogger) 
-        else 
+    else 
+        flash[:error] = @blogger.errors.full_messages
         redirect_to new_blogger_path
-        end 
+    end 
      
 end 
 
 
+
 def edit
+    @posts = Post.all 
+    @destinations = Destination.all
     @blogger = Blogger.find(params[:id])
 end
 

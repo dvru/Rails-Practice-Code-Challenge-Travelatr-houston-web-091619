@@ -1,19 +1,3 @@
-<%= form_for @post do |f| %>
-<%= f.label :title %>
-<%= f.text_field :title %>
-
-<%= f.label :content %>
-<%= f.text_field :content %>
-
-<%= f.label :likes %>
-<%= f.text_field :likes %>
-
-<%= f.label :blogger_id %>
-<%= f.text_field :blogger_id %>
-
-<%= f.label :destination_id %>
-<%= f.text_field :destination_id %>
-<%= f.submit %>
-<% end %>
-
+<% if flash[:error] %> 
+<%= render 'form' %>
 

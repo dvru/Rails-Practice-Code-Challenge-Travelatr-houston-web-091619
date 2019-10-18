@@ -10,15 +10,29 @@ class PostsController < ApplicationController
     
     def new
         @post = Post.new
+        @bloggers = Blogger.all 
+        @destinations = Destination.all 
     end 
     
-    def create 
-        @post = Post.create(post_params)
-        redirect_to post_path(@post)
-    end 
+    def create
+        @post = Post.new(post_params)
+
+        if @post.valid? 
+            @post.likes = 0
+            @post.save 
+            redirect_to post_path(@post) 
+        else 
+            flash[:error] = @post.errors.full_messages 
+            redirect_to new_post_path 
+        end
     
-    
+    end
+
+
+
     def edit
+        @bloggers = Blogger.all 
+        @destinations = Destination.all 
         @post = Post.find(params[:id])
     end
     
